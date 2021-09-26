@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="netofnets">Net of Nets</string>
+    <string name="Explore">Explore</string>
+    <string name="Activity">Activity</string>
+    <string name="postajob">Post a Job</string>
+    <string name="findajob">Find Jobs</string>
+    <string name="help_others">Help Others</string>
+    <string name="findCandidates">Find Candidates</string>
+    <string name="help_friends">Help friends and get paid</string>
+    <string name="maya">Maya is intrested In..</string>
+</resources>
