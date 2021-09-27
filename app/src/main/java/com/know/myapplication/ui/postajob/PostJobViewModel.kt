@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 class PostJobViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+        value = "This is Post a Job Fragment"
     }
     val text: LiveData<String> = _text
 }

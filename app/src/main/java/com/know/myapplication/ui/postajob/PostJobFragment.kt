@@ -8,11 +8,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.know.myapplication.databinding.FragmentHomeBinding
+import com.know.myapplication.databinding.FragmentPostajobBinding
 
 class PostJobFragment : Fragment() {
 
     private lateinit var homeViewModel: PostJobViewModel
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentPostajobBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -26,7 +27,7 @@ class PostJobFragment : Fragment() {
         homeViewModel =
             ViewModelProvider(this).get(PostJobViewModel::class.java)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentPostajobBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         homeViewModel.text.observe(viewLifecycleOwner, Observer {

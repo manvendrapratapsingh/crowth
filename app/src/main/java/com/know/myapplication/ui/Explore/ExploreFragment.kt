@@ -4,16 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.know.myapplication.databinding.FragmentExploreBinding
 import com.know.myapplication.databinding.FragmentHomeBinding
 
 class ExploreFragment : Fragment() {
 
-    private lateinit var homeViewModel: PostJobViewModel
-    private var _binding: FragmentHomeBinding? = null
-
+    private lateinit var homeViewModel: ExploreViewModel
+    private var _binding: FragmentExploreBinding? = null
+    private lateinit var exploreText:TextView
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -24,13 +26,15 @@ class ExploreFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         homeViewModel =
-            ViewModelProvider(this).get(PostJobViewModel::class.java)
+            ViewModelProvider(this).get(ExploreViewModel::class.java)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentExploreBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        exploreText = binding.textExplore
+
 
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
-
+           exploreText.text=it
         })
         return root
     }

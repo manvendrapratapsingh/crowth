@@ -12,23 +12,23 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_explore"
+        android:id="@+id/expplore"
         android:name="com.know.myapplication.ui.home.ExploreFragment"
         android:label="@string/Explore"
         tools:layout="@layout/fragment_explore" />
     <fragment
-        android:id="@+id/navigation_netsofnets"
+        android:id="@+id/netOfNets"
         android:name="com.know.myapplication.ui.home.NetofnetsFragment"
         android:label="@string/netofnets"
         tools:layout="@layout/fragment_netsofnets" />
 
     <fragment
-        android:id="@+id/navigation_activity"
+        android:id="@+id/activity"
         android:name="com.know.myapplication.ui.activity.UserActivityFragment"
         android:label="@string/Activity"
         tools:layout="@layout/fragment_useractivity" />
     <fragment
-        android:id="@+id/navigation_postajob"
+        android:id="@+id/postajob"
         android:name="com.know.myapplication.ui.home.PostJobFragment"
         android:label="@string/postajob"
         tools:layout="@layout/fragment_postajob" />

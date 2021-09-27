@@ -9,11 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.know.myapplication.databinding.FragmentDashboardBinding
+import com.know.myapplication.databinding.FragmentUseractivityBinding
 
 class UserActivityFragment : Fragment() {
 
     private lateinit var dashboardViewModel: UserActivityViewModel
-    private var _binding: FragmentDashboardBinding? = null
+    private var _binding: FragmentUseractivityBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -27,10 +28,10 @@ class UserActivityFragment : Fragment() {
         dashboardViewModel =
             ViewModelProvider(this).get(UserActivityViewModel::class.java)
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentUseractivityBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
+        val textView: TextView = binding.textUseractivity
         dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
