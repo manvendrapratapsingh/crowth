@@ -1,5 +1,6 @@
 package com.know.androidnew
 
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -17,38 +18,27 @@ import com.know.myapplication.ui.home.ViewPagerAdapter
 class HomeAdapter (var crowthData: List<CrowthData>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-
-        if (viewType==0) {
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.top_options_lay, parent, false)
-            return TopVirwHolder(view)
-        }else if(viewType==1){
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.view_pager_image,parent,false)
-            return GroupViewHolder(view)
-        }else if(viewType==2){
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.textdata,parent,false)
-            return TextViewHolder(view)
+         val view =  when (viewType) {
+            0 -> return TopVirwHolder(LayoutInflater.from(parent.context).inflate(R.layout.top_options_lay, parent, false))
+            1 -> return GroupViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.view_pager_image,parent,false))
+            2 -> return TextViewHolder( LayoutInflater.from(parent.context).inflate(R.layout.textdata,parent,false))
+            3 ->  return CandidateHolder(LayoutInflater.from(parent.context).inflate(R.layout.type3view,parent,false))
+            else -> { // Note the block
+                 return DummyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.dummy_view, parent, false))
+            }
         }
-        else if(viewType==3){
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.type3view,parent,false)
-            return CandidateHolder(view)
-        }
-        else{
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.dummy_view, parent, false)
-            return DummyViewHolder(view)
-        }
+//
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if(holder is GroupViewHolder) {
 
-                    val imagesList = listOf(
-                        R.mipmap.image_user,
-                        R.mipmap.image_user,
-                        R.mipmap.image_user
-                    )
-
-                    val adapter = ViewPagerAdapter(imagesList)
-                    holder.viewPager2.adapter = adapter
+            val userImage = mutableListOf<Int>()
+            repeat(10) { index ->
+                userImage.add( R.mipmap.image_user)
+            }
+            val adapter = ViewPagerAdapter(userImage)
+            holder.viewPager2.adapter = adapter
 
             }else if(holder is CandidateHolder){
               val candidates = mutableListOf<Candidates>()
@@ -62,6 +52,7 @@ class HomeAdapter (var crowthData: List<CrowthData>) : RecyclerView.Adapter<Recy
             }
 
     }
+
 
     override fun getItemViewType(position: Int): Int {
         return  crowthData[position].type
